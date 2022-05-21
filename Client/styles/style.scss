@@ -1,0 +1,364 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,900&display=swap');
+
+@import "../extra/fontawesome/scss/fontawesome.scss";
+@import "../extra/fontawesome/scss/solid.scss"; 
+@import "../extra/fontawesome/scss/brands.scss"; 
+
+@mixin buttonStyle($width, $heigth, $hoverColor: #dcdcdc) {
+    width: $width;
+    height: $heigth;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    background: #efefef;
+    border-radius: 8px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: background-color 0.5s ease;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $hoverColor;
+    }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+    font-family: 'Lato', sans-serif;
+    background-color: rgb(173, 173, 173);
+}
+
+main {
+    &#main {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
+
+section {
+    //border: dotted red;
+    height: 70vh;
+    width: 25em;
+    border-radius: 10px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    background-color: #cccccc;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+    &.info div {
+        padding-bottom: 1em;
+    }
+
+    & #buttonsDiv {
+        margin-bottom: 2em;
+        overflow: auto;
+    }
+    
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    font-size: 3em;
+    font-style: bold;
+    font-weight: 700;
+    padding-bottom: 1em;
+}
+
+h3 {
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.5em;
+}
+
+label {
+    font-family: 'Lato', sans-serif;
+}
+
+.subtitle {
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.2em;
+    padding-bottom: 0.5em;
+}
+
+.divisorDiv {
+    padding: 0.5em;
+    margin: 0.5em;
+    border-radius: 7px;
+    background-color: rgb(233, 233, 233);
+
+    .extraDiv {
+        display: none;
+        position: absolute;
+        width: 70vw;
+        height: 50vh;
+        margin: auto;
+        top: 0; bottom: 0; right: 0; left: 0;
+        z-index: 9;
+        transition: 1s ease;
+        background: #b9b9b9;
+    
+        display: flex;
+    
+        justify-content: flex-start;
+        align-items: flex-start;
+    
+        & header {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+    
+            & button {
+                @include buttonStyle(2.2em, 2.2em);
+                font-size: 1.2em;
+        
+                margin: 1em;
+            }
+        }
+    
+        & main {
+            overflow: auto;
+            position: relative;
+            width: 100%;
+            height: 90%;
+    
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+    
+            margin-bottom: 3em;
+            
+            & #extraOptions {
+                width: 100%;
+                height: 90%;
+                margin-left: 3em;
+                margin-right: 3em;
+                border-radius: 10px;
+                background: #e5e5e5;
+                padding: 1em;
+                overflow: auto;
+
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-start;
+                flex-direction: column;
+
+                & > div {
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 0.5em;
+
+                    & input {
+                        margin-left: 0.5em;
+                    }
+                }
+            }
+        }
+    }
+
+    & #showExtra {
+        @include buttonStyle(2.2em, 2.2em, #e1e1e1);
+        display: inline-block;
+        margin-left: 1em;
+    }
+}
+
+#addButton {
+    @include buttonStyle(2.2em, 2.2em);
+    margin-bottom: 1em;
+}
+
+.flex-center {
+    display: flex;
+    align-content: center;
+    
+    & button {
+        @include buttonStyle(2.2em, 2.2em);
+        font-size: 1.2em;
+        margin: 1em;
+    }
+    
+}
+
+#codeSection {
+    display: none;
+    position: absolute;
+    width: 70vw;
+    height: 70vh;
+    margin: auto;
+    top: 0; bottom: 0; right: 0; left: 0;
+    z-index: 9;
+    transition: 1s ease;
+
+    display: flex;
+
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    & header {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+
+        & button {
+            @include buttonStyle(2.2em, 2.2em);
+            font-size: 1.2em;
+    
+            margin: 1em;
+        }
+    }
+
+    & main {
+        overflow: auto;
+        position: relative;
+        width: 100%;
+        height: 50vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+
+        
+        & pre {
+            width: 100%;
+            height: 90%;
+            margin-left: 3em;
+            margin-right: 3em;
+            border-radius: 10px;
+            
+            & code {
+                margin: 0;
+                white-space: pre-wrap
+            }
+        }
+    }
+
+    & footer {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        & button {
+            @include buttonStyle(10em, 2.2em);
+            font-size: 1.2em;
+            font-family: inherit;
+    
+            margin: 1em;
+        }
+    }
+}
+
+.overlay {
+    position: absolute;
+    top: 0; bottom: 0; right: 0; left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba($color: #000000, $alpha: 0.7);
+    transition: opacity 0.8s ease;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & #loading {
+        width: 10em;
+        height: 10em;
+        border: 1.5em solid #b9b9b9;
+        border-radius: 50%;
+        border-top: 1.5em solid rgb(32, 32, 32);
+        animation: goRotate 1.5s infinite ease-in-out;
+
+        @keyframes goRotate {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    }
+}
+
+.hidden {
+    visibility : hidden; 
+    opacity: 0;
+    transition: visibility 0.8s ease, opacity 0.8s ease;
+}
+
+input {
+    height: 25px;
+    font-family: inherit;
+    border: 2px solid #ffffff;
+    border-radius: 4px;
+    padding: 0.25em 0.5em;
+    background: #fff;
+    transition: 180ms box-shadow ease-in-out, 180ms border ease-in-out;;
+
+    &:not(textarea) {
+        line-height: 1;
+    }
+
+    &:focus {
+        border: 2px solid rgb(32, 32, 32);
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        outline: 3px solid transparent;
+    }
+}
+
+select {
+    margin-left: 5px;
+	-moz-appearance: none; 
+	-webkit-appearance: none; 
+	appearance: none;
+	height: 25px; 
+	width: 100px;
+	padding: 5px;
+    font-family: inherit;
+    border: 2px solid #ffffff;
+    border-radius: 4px;
+    padding: 0.25em 0.5em;
+	background: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0Ljk1IDEwIj48ZGVmcz48c3R5bGU+LmNscy0ye2ZpbGw6IzQ0NDt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPmFycm93czwvdGl0bGU+PHBvbHlnb24gY2xhc3M9ImNscy0yIiBwb2ludHM9IjEuNDEgNC42NyAyLjQ4IDMuMTggMy41NCA0LjY3IDEuNDEgNC42NyIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMiIgcG9pbnRzPSIzLjU0IDUuMzMgMi40OCA2LjgyIDEuNDEgNS4zMyAzLjU0IDUuMzMiLz48L3N2Zz4=) no-repeat 95% 50%;
+    background-color: #fff;
+    outline: 3px solid transparent;
+}
+
+[data-title]:hover:after {
+    opacity: 1;
+    transition: all 0.1s ease 0.5s;
+    visibility: visible;
+}
+[data-title]:after {
+    content: attr(data-title);
+    background-color: #e5e5e5;
+    color: #111;
+    position: absolute;
+    padding: 1px 5px 2px 5px;
+    bottom: -1.9em;
+    //left: 100%;
+    white-space: nowrap;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    opacity: 0;
+    //border: 1px solid #111111;
+    border-radius: 10px;
+    z-index: 6;
+    visibility: hidden;
+}
+[data-title] {
+    position: relative;
+}

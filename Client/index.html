@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="extra/prism/prism.css">
+    <link rel="stylesheet" href="extra/prism/themes/prism-vsc-dark-plus.css">
+    <script src="./libraries/jquery.js"></script>
+</head>
+<body>
+    <h1>Insert generator</h1>
+
+    <main id="main">
+        <section class="data">
+            <h3>Data</h3>
+            <p class="subtitle">What do you want to get?</p>
+            <button id="addButton"><i class="fa-solid fa-add"></i></button>
+            <div id="buttonsDiv"></div>
+        </section>
+
+        <section class="info">
+            <h3>Info</h3>
+            <p class="subtitle">How is the table?</p>
+            <div>
+                <label for="tableName">Table name: </label>
+                <input type="text" name="tableName" id="tableName" placeholder="Table">
+            </div>
+            <div>
+                <label for="quantity">Quantity of data: </label>
+                <input type="number" name="quantity" id="quantity" placeholder="100">
+            </div>
+
+            <div class="flex-center">
+                <button id="generateSQLButton" data-title="Convert to SQL"><i class="fa-solid fa-database"></i></button>
+                <button id="generateCSVButton" data-title="Convert to CSV"><i class="fa-solid fa-file-csv"></i></button>
+            </div>
+        </section>
+
+        <section id="codeSection" class="hidden">
+            <header>
+                <button id="closeOverlay"><i class="fa-solid fa-close"></i></button>
+            </header>
+            <main>
+                <pre><code id="codeResult" class=""></code></pre>
+            </main>
+            <footer>
+                <button id="copyClipboard"><i class="fa-solid fa-copy"></i>Copy to clipboard</button>
+            </footer>
+        </section>
+
+        <!-- Enable class hidden-->
+        <div id="overlay" class="overlay hidden">
+            <div id="loading" class="hidden"></div>
+        </div>
+    </main>
+
+    <script src="./scripts/script.js"></script>
+    <script src="extra/prism/prism.js"></script>
+</body>
+</html>
