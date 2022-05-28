@@ -5,6 +5,20 @@ Welcome to InsertGenerator! This project aims to simplify the job of obtaining d
 
 This repository includes all what's needed to execute it easily. It's composed by two docker containers. One is for the front-end, and another is for the back-end (a Node.js server).
 
+## Features
+With this project, you can generate:
+* Names (select between just names, first surname of last surname (or all of them!))
+* Numbers (decide a range, or assign it as autoincrementable)
+* Streets
+* Emails (automatically synchronized with the name)
+* DNI
+* Phones (landline or mobile phones) - spanish version
+* Dates (decide a range)
+* Create your custom datatypes!
+
+## Custom datatypes
+Yes, as you read, you can create your own datatype. Just press "custom", and decide what values you want to have.
+
 ## How to use it
 Just run `docker-compose up -d` and look at localhost:83. The program will be running there!
 
