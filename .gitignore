@@ -1,1 +1,4 @@
 /.DS_Store
+Server/node_modules/
+Client/.DS_Store
+Client/extra/.DS_Store

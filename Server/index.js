@@ -21,10 +21,13 @@ app.post('/', (req, res) => {
     res.send(result)
 })
 
+
 function manageData(response) {
     let myData = {
         data: [  ]
     }
+    
+    let autoincrement = { }
 
     for (let i = 0; i < response.info['quantity']; i++) {
 
@@ -32,6 +35,7 @@ function manageData(response) {
 
         // Guardarà el nom actual (permet sincronitzar noms i correus)
         let currentName = { }
+        currentName = receivedName({name: true, firstSurname: true, lastSurname: true})
 
         for (const element in response.data) {
             const type = response.data[element].type
@@ -43,7 +47,7 @@ function manageData(response) {
                     newElement[element] = currentName.completeName
                     break
                 case 'Number':
-                    newElement[element] = receivedNumber(extra)
+                    newElement[element] = receivedNumber(extra, element, autoincrement)
                     break
                 case 'Street':
                     newElement[element] = receivedStreet()
@@ -64,7 +68,16 @@ function manageData(response) {
                     newElement[element] = receivedDate(extra)
                     break
                 default:
-                    newElement[element] = receivedError()
+                    let found = false
+                    for (const custom in response.custom) {
+                        console.log(response.custom)
+                        if (element == custom) {
+                            found = true
+                            newElement[element] = receivedCustom(element, response.custom)
+                            //console.log(extra)
+                        }
+                    }
+                    if (!found) newElement[element] = receivedError()
                     break
             }
         }
@@ -102,9 +115,28 @@ function receivedName(extra) {
 
     return dataToReturn
 }
-function receivedNumber(extra) { 
-    let min = extra.min ? parseInt(extra.min) : 0
+function receivedNumber(extra, element, autoincrement) {
+    // El valor mínim serà, si se n'ha donat un, aquest. 
+    // Si no, revisarem: és autoincrement? Llavors 1. Del contrari, 0
+    let min = extra.min 
+        ? parseInt(extra.min) 
+        : extra.autoincrement 
+            ? 1
+            : 0
+    
+    // El valor màxim serà, si se n'ha donat un, aquest.
+    // Si no, serà 100
     let max = extra.max ? parseInt(extra.max) : 100
+    
+    if (extra.autoincrement) {
+        if (autoincrement[element]) {
+            return autoincrement[`${element}`]++
+        }
+        else {
+            autoincrement[`${element}`] = min + 1
+            return min
+        }
+    }
 
     return randomNumber(min, max)
 }
@@ -161,6 +193,11 @@ function receivedDNI() {
     return dni
 }
 
+function receivedCustom(name, customValues) {
+    let randomInt = randomNumber(0, customValues[`${name}`].length - 1)
+    return customValues[`${name}`][randomInt]
+}
+
 function randomName(type) {
     let data 
     if (type == 'name') data = fs.readFileSync('./data/first-name.json')
@@ -191,4 +228,4 @@ function randomNumber(min, max) {
 }
 
 
-app.listen(81)
+app.listen(84)
