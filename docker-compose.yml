@@ -9,10 +9,10 @@ services:
 
   back:
     build: ./Server
-    working_dir: /root/InsertGenerator
+    working_dir: /home/node/InsertGenerator
     ports:
       - 84:81
     volumes:
-      - './Server:/root/InsertGenerator'
+      - './Server:/home/node/InsertGenerator'
     command: [npm, start]
     tty: true
