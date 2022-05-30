@@ -1,4 +1,4 @@
-version: "3.9"
+version: "2.3"
 services:
   front:
     image: httpd:alpine
@@ -8,7 +8,7 @@ services:
       - './Client:/usr/local/apache2/htdocs/'
 
   back:
-    image: node:16-alpine
+    build: ./Server
     working_dir: /root/InsertGenerator
     ports:
       - 84:81
