@@ -1,4 +1,9 @@
-// TODO: Correu -> llista de dominis
+let urlServer = 
+    (typeof process != 'undefined') 
+        ? process.env.URL_SERVER 
+        : 'http://localhost:81/api'
+
+console.log(urlServer)
 
 let addButton = document.getElementById('addButton')
 let buttonsDiv = document.getElementById('buttonsDiv')
@@ -291,7 +296,7 @@ generateSQLButton.addEventListener('click', async function() {
 
     // Seguidament, fem la petició al servidor, on li enviem l'objecte request com a string. 
     // Espeficiquem que enviarem un JSON.
-    let response = await fetch(`http://localhost:81/api`, {
+    let response = await fetch(urlServer, {
         method: 'POST',              
         body: JSON.stringify(request),
         headers: {
@@ -323,8 +328,7 @@ generateCSVButton.addEventListener('click', async function() {
     
     // Seguidament, fem la petició al servidor, on li enviem l'objecte request com a string. 
     // Espeficiquem que enviarem un JSON.
-    let url = "http://localhost:81/api"
-    let response = await fetch(url, {
+    let response = await fetch(urlServer, {
         method: 'POST',              
         body: JSON.stringify(request),
         headers: {

@@ -13,7 +13,7 @@ app.use(function (req, res, next) {
     next();
 })
 
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname + '/public')))
 
 app.post('/api', (req, res) => {
     const body = req.body
@@ -143,7 +143,7 @@ function receivedNumber(extra, element, autoincrement) {
 }
 
 function receivedStreet() { 
-    let data = fs.readFileSync('./data/street.json')
+    let data = fs.readFileSync(path.join(__dirname, './data/street.json'))
     
     try {
         const streets = JSON.parse(data)
@@ -201,8 +201,8 @@ function receivedCustom(name, customValues) {
 
 function randomName(type) {
     let data 
-    if (type == 'name') data = fs.readFileSync('./data/first-name.json')
-    else data = fs.readFileSync('./data/last-name.json')
+    if (type == 'name') data = fs.readFileSync(path.join(__dirname, './data/first-name.json'))
+    else data = fs.readFileSync(path.join(__dirname, './data/last-name.json'))
     try {
         const names = JSON.parse(data)
         random = Math.floor(Math.random() * names.length)
