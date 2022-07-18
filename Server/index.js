@@ -1,4 +1,5 @@
 const express = require('express')
+const path = require('path')
 const fs = require('fs')
 
 const app = express()
@@ -12,15 +13,15 @@ app.use(function (req, res, next) {
     next();
   });
 
-app.post('/', (req, res) => {
+app.use(express.static(path.join(__dirname, '../Client')))
 
+app.post('/api', (req, res) => {
     const body = req.body
     console.log(body)
 
     let result = manageData(body)
     res.send(result)
 })
-
 
 function manageData(response) {
     let myData = {

@@ -291,7 +291,7 @@ generateSQLButton.addEventListener('click', async function() {
 
     // Seguidament, fem la petició al servidor, on li enviem l'objecte request com a string. 
     // Espeficiquem que enviarem un JSON.
-    let response = await fetch(`http://localhost:84`, {
+    let response = await fetch(`http://localhost:81/api`, {
         method: 'POST',              
         body: JSON.stringify(request),
         headers: {
@@ -323,7 +323,7 @@ generateCSVButton.addEventListener('click', async function() {
     
     // Seguidament, fem la petició al servidor, on li enviem l'objecte request com a string. 
     // Espeficiquem que enviarem un JSON.
-    let url = "http://localhost:84"
+    let url = "http://localhost:81/api"
     let response = await fetch(url, {
         method: 'POST',              
         body: JSON.stringify(request),
