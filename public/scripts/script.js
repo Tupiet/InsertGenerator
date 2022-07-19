@@ -1,3 +1,4 @@
+// Si té accés a la variable process, estem en node. Agafa l'enllaç de l'env. Del contrari, localhost.
 let urlServer = 
     (typeof process != 'undefined') 
         ? process.env.URL_SERVER 
