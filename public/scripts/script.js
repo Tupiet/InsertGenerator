@@ -4,6 +4,8 @@ let urlServer =
         ? process.env.URL_SERVER 
         : 'http://localhost:81/api'
 
+alert(urlServer + (typeof process != 'undefined'))
+
 console.log(urlServer)
 
 let addButton = document.getElementById('addButton')
