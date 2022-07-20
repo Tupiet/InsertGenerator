@@ -3,7 +3,7 @@
 ## Description
 Welcome to InsertGenerator! This project aims to simplify the job of obtaining data for testing, and to insert them easily in a database.
 
-This repository includes all what's needed to execute it easily. The front-end (made with HTML, CSS (Sass) and JavaScript) allows you to easily select what you need, and sends that in a JSON to the back-end, which generates the data and returns them to the front-end.
+This repository includes all what's needed to execute it easily. The front-end (made with HTML, CSS (Sass) and JavaScript) allows you to easily select what you need, and sends that in a JSON to the back-end (made with Node.js), which generates the data and returns them to the front-end.
 
 ## Features
 With this project, you can generate:
