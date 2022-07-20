@@ -1,12 +1,6 @@
-// Si té accés a la variable process, estem en node. Agafa l'enllaç de l'env. Del contrari, localhost.
-let urlServer = 
-    (typeof process != 'undefined') 
-        ? process.env.URL_SERVER 
-        : 'http://localhost:81/api'
+let urlServer = window.location.origin + '/api'
 
 alert(urlServer + (typeof process != 'undefined'))
-
-console.log(urlServer)
 
 let addButton = document.getElementById('addButton')
 let buttonsDiv = document.getElementById('buttonsDiv')
