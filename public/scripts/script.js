@@ -1,7 +1,5 @@
 let urlServer = window.location.origin + '/api'
 
-alert(urlServer + (typeof process != 'undefined'))
-
 let addButton = document.getElementById('addButton')
 let buttonsDiv = document.getElementById('buttonsDiv')
 let quantity = document.getElementById('quantity')
