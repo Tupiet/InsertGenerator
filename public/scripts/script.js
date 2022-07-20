@@ -1,3 +1,4 @@
+// Ens assegurem que tingui l'enllaç correcte del server
 let urlServer = window.location.origin + '/api'
 
 let addButton = document.getElementById('addButton')
