@@ -23,7 +23,7 @@ Yes, as you read, you can create your own datatype. Just press "custom", and dec
 Just run `npm start` in the `Server` directory and look at `localhost:81`. The program will be running there!
 
 ## What do I need to use it?
-You just need to have Node.js installed. Everything else will be downloaded and installed automatically. You also need to have port 81 of the router free.
+You just need to have Node.js installed. Everything else will be downloaded and installed automatically. You also need to have port 81 free.
 
 ## Acknowledgments
 The names are extracted from the [INEbase](https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736177009&menu=resultados&idp=1254734710990), the surnames are extracted from [smashew/NameDatabases](https://github.com/smashew/NameDatabases/blob/master/NamesDatabases/surnames/es.txt) and the streets are extracted from [kkrypt0nn/Wordlists](https://github.com/kkrypt0nn/Wordlists/blob/master/security_question_answers/street_names.txt). 
