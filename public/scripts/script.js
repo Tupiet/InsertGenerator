@@ -11,9 +11,13 @@ let generateCSVButton = document.getElementById('generateCSVButton')
 
 let copyButton = document.getElementById('copyClipboard')
 let closeOverlay = document.getElementById('closeOverlay')
+let closeAlert = document.getElementById('closeAlert')
 
 let codeSection = document.getElementById('codeSection')
 let codeResult = document.getElementById('codeResult')
+
+let alertSection = document.getElementById('alertSection')
+let alertMessage = document.getElementById('alertMessage')
 
 let overlay = document.getElementById('overlay')
 let loading = document.getElementById('loading')
@@ -341,6 +345,15 @@ generateCSVButton.addEventListener('click', async function() {
         loading.classList.add('hidden')
         codeSection.classList.remove('hidden')
         //console.log(convertToSQL(data))
+    } else {
+        // TODO: Make an advice appear!
+        if (response.status == 502) {
+            alertMessage.innerHTML = 'Oops... There was an error. Please, try with less data! Or, use the docker version.'
+        } else {
+            alertMessage.innerHTML = 'Oops... There was an error. Please, try again!'
+        }
+        loading.classList.add('hidden')
+        alertSection.classList.remove('hidden')
     }
 })
 
