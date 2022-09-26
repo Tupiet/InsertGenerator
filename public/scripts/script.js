@@ -313,6 +313,14 @@ generateSQLButton.addEventListener('click', async function() {
         loading.classList.add('hidden')
         codeSection.classList.remove('hidden')
         //console.log(convertToSQL(data))
+    } else {
+        if (response.status == 504) {
+            alertMessage.innerHTML = 'Oops... There was an error. Please, try with less data! Or, use the docker version.'
+        } else {
+            alertMessage.innerHTML = 'Oops... There was an error. Please, try again!'
+        }
+        loading.classList.add('hidden')
+        alertSection.classList.remove('hidden')
     }
 })
 
@@ -346,8 +354,7 @@ generateCSVButton.addEventListener('click', async function() {
         codeSection.classList.remove('hidden')
         //console.log(convertToSQL(data))
     } else {
-        // TODO: Make an advice appear!
-        if (response.status == 502) {
+        if (response.status == 504) {
             alertMessage.innerHTML = 'Oops... There was an error. Please, try with less data! Or, use the docker version.'
         } else {
             alertMessage.innerHTML = 'Oops... There was an error. Please, try again!'
@@ -365,6 +372,11 @@ closeOverlay.addEventListener('click', function() {
         codeResult.classList.remove('language-sql')
         codeResult.classList.remove('language-csv')
     } catch (error) { }
+})
+
+closeAlert.addEventListener('click', function() {
+    overlay.classList.add('hidden')
+    alertSection.classList.add('hidden')
 })
 
 // Quan es doni clic al botó de copiar

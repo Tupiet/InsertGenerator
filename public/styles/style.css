@@ -10324,7 +10324,7 @@ label {
   background-color: #dcdcdc;
 }
 
-#codeSection {
+#codeSection, #alertSection {
   display: none;
   position: absolute;
   width: 70vw;
@@ -10340,14 +10340,14 @@ label {
   justify-content: flex-start;
   align-items: flex-start;
 }
-#codeSection header {
+#codeSection header, #alertSection header {
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
 }
-#codeSection header button {
+#codeSection header button, #alertSection header button {
   width: 2.2em;
   height: 2.2em;
   display: flex;
@@ -10362,10 +10362,10 @@ label {
   font-size: 1.2em;
   margin: 1em;
 }
-#codeSection header button:hover {
+#codeSection header button:hover, #alertSection header button:hover {
   background-color: #dcdcdc;
 }
-#codeSection main {
+#codeSection main, #alertSection main {
   overflow: auto;
   position: relative;
   width: 100%;
@@ -10374,25 +10374,25 @@ label {
   justify-content: center;
   align-items: flex-start;
 }
-#codeSection main pre {
+#codeSection main pre, #alertSection main pre {
   width: 100%;
   height: 90%;
   margin-left: 3em;
   margin-right: 3em;
   border-radius: 10px;
 }
-#codeSection main pre code {
+#codeSection main pre code, #alertSection main pre code {
   margin: 0;
   white-space: pre-wrap;
 }
-#codeSection footer {
+#codeSection footer, #alertSection footer {
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
-#codeSection footer button {
+#codeSection footer button, #alertSection footer button {
   width: 10em;
   height: 2.2em;
   display: flex;
@@ -10408,7 +10408,7 @@ label {
   font-family: inherit;
   margin: 1em;
 }
-#codeSection footer button:hover {
+#codeSection footer button:hover, #alertSection footer button:hover {
   background-color: #dcdcdc;
 }
 
