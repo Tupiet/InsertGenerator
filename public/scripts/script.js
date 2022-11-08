@@ -343,7 +343,7 @@ generateSQLButton.addEventListener('click', async function() {
         //console.log(convertToSQL(data))
     } else {
         if (response.status == 504) {
-            alertMessage.innerHTML = 'Oops... There was an error. Please, try with less data! Or, use the docker version.'
+            alertMessage.innerHTML = 'Oops... There was an error. You have asked for more information than I can give. Please, try with less data, or use the <a href="https://github.com/Tupiet/InsertGenerator#how-to-use-it">docker version</a>, which doesn\'t have any limit.'
         } else {
             alertMessage.innerHTML = 'Oops... There was an error. Please, try again!'
         }
@@ -383,7 +383,7 @@ generateCSVButton.addEventListener('click', async function() {
         //console.log(convertToSQL(data))
     } else {
         if (response.status == 504) {
-            alertMessage.innerHTML = 'Oops... There was an error. You have asked for more information than I can give. Please, try with less data, or use the <a href="https://hub.docker.com/r/tupiet/insertgenerator">docker version</a>, which doesn\'t have any limit.'
+            alertMessage.innerHTML = 'Oops... There was an error. You have asked for more information than I can give. Please, try with less data, or use the <a href="https://github.com/Tupiet/InsertGenerator#how-to-use-it">docker version</a>, which doesn\'t have any limit.'
         } else {
             alertMessage.innerHTML = 'Oops... There was an error. Please, try again!'
         }
