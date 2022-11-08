@@ -22,7 +22,7 @@ let alertMessage = document.getElementById('alertMessage')
 let overlay = document.getElementById('overlay')
 let loading = document.getElementById('loading')
 
-let options = ['Name', 'Number', 'Street', 'Email', 'DNI', 'Phone (house)', 'Phone (mobile)', 'Date', 'Custom']
+let options = ['Name', 'Number', 'Street', 'Email', 'DNI', 'Phone (house)', 'Phone (mobile)', 'Date', 'Lorem', 'Custom']
 
 // Aquest és l'element que s'enviarà al servidor
 let request = {
@@ -238,6 +238,34 @@ addButton.addEventListener('click', function() {
                 //newDiv.appendChild(format)
                 break
             }
+            case 'Lorem': {
+                // Creem els elements max i min, que serviran per delimitar els rangs de dades
+                let max = document.createElement('input')
+                let min = document.createElement('input')
+
+                let minDiv = document.createElement('div')
+                let maxDiv = document.createElement('div')
+
+                let minLabel = document.createElement('label')
+                let maxLabel = document.createElement('label')
+
+                max.name = 'max'
+                min.name = 'min'
+
+                min.placeholder = "Minimum"
+                max.placeholder = "Maximum"
+                
+                minLabel.innerHTML = "Minimum: "
+                maxLabel.innerHTML = "Maximum: "
+
+                extraMainDiv.appendChild(minDiv)
+                minDiv.appendChild(minLabel)
+                minDiv.appendChild(min)
+                extraMainDiv.appendChild(maxDiv)
+                maxDiv.appendChild(maxLabel)
+                maxDiv.appendChild(max)
+                break
+            }
             case 'Custom': {
                 let customP = document.createElement('p')
                 let customAdd = document.createElement('button')
@@ -355,7 +383,7 @@ generateCSVButton.addEventListener('click', async function() {
         //console.log(convertToSQL(data))
     } else {
         if (response.status == 504) {
-            alertMessage.innerHTML = 'Oops... There was an error. Please, try with less data! Or, use the docker version.'
+            alertMessage.innerHTML = 'Oops... There was an error. You have asked for more information than I can give. Please, try with less data, or use the <a href="https://hub.docker.com/r/tupiet/insertgenerator">docker version</a>, which doesn\'t have any limit.'
         } else {
             alertMessage.innerHTML = 'Oops... There was an error. Please, try again!'
         }
@@ -449,6 +477,17 @@ function collectData() {
                     break
                 }
                 case 'Date': {
+                    let extraMinDiv = extraMainDiv.children[0]
+                    let extraMaxDiv = extraMainDiv.children[1]
+    
+                    let max = extraMinDiv.children[1]
+                    let min = extraMaxDiv.children[1]
+
+                    toSend['min'] = min.value
+                    toSend['max'] = max.value
+                    break
+                }
+                case 'Lorem': {
                     let extraMinDiv = extraMainDiv.children[0]
                     let extraMaxDiv = extraMainDiv.children[1]
     

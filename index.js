@@ -68,6 +68,9 @@ function manageData(response) {
                 case 'Date':
                     newElement[element] = receivedDate(extra)
                     break
+                case 'Lorem':
+                    newElement[element] = receivedLorem(extra)
+                    break
                 default:
                     let found = false
                     for (const custom in response.custom) {
@@ -182,6 +185,15 @@ function receivedDate(extra) {
     console.log(new Date(+min + Math.random() * (max - min)))
 
     return new Date(+min + Math.random() * (max - min)).toISOString().slice(0, 10)
+}
+
+function receivedLorem(extra) { 
+    let min = extra.min ? parseInt(extra.min) : 10
+    let max = extra.max ? parseInt(extra.max) : 500
+
+    let data = String(fs.readFileSync(path.join(__dirname, './data/lorem.txt')))
+
+    return data.slice(0, min + Math.random() * (max - min))
 }
 function receivedError() { return "Something went wrong!" }
 
