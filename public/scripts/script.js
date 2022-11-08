@@ -252,11 +252,11 @@ addButton.addEventListener('click', function() {
                 max.name = 'max'
                 min.name = 'min'
 
-                min.placeholder = "Minimum"
-                max.placeholder = "Maximum"
+                min.placeholder = "10"
+                max.placeholder = "500"
                 
-                minLabel.innerHTML = "Minimum: "
-                maxLabel.innerHTML = "Maximum: "
+                minLabel.innerHTML = "Minimum chars: "
+                maxLabel.innerHTML = "Maximum chars: "
 
                 extraMainDiv.appendChild(minDiv)
                 minDiv.appendChild(minLabel)
